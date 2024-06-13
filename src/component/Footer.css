@@ -1,0 +1,18 @@
+.curved-top-container {
+  border-radius: 50% 50% 0% 0% / 3% 3% 0% 0%;
+}
+
+@media (max-width: 1023px) {
+  .curved-top-container {
+    border-radius: 50% 50% 0% 0% / 1% 1% 0% 0%;
+  }
+}
+
+.bg-gradient {
+  background: rgb(55, 147, 255);
+  background: linear-gradient(
+    93deg,
+    rgba(55, 147, 255, 1) 0%,
+    rgba(0, 23, 228, 1) 100%
+  );
+}
