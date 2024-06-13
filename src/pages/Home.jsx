@@ -1,3 +1,4 @@
+import AnimatedText from "../component/AnimatedText";
 import DocumentsRequired from "../component/DocumentsRequired";
 import Faq from "../component/Faq";
 import Footer from "../component/Footer";
@@ -7,6 +8,8 @@ import Navbar from "../component/Navbar";
 import RequirementCard from "../component/RequirementCard";
 import StudyUK from "../component/StudyUK";
 import UniversityCards from "../component/UniversityCards";
+import QuickFacts from "./../component/QuickFacts";
+import Tabs from "./../component/Tabs";
 
 const Home = () => {
   return (
@@ -14,6 +17,9 @@ const Home = () => {
       <Navbar />
       <Herosection />
       <StudyUK />
+      <QuickFacts />
+      <Tabs />
+      <AnimatedText />
       <UniversityCards />
       <RequirementCard />
       <GuidanceBanner />

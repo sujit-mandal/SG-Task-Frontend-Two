@@ -300,7 +300,7 @@ const UniversityCards = () => {
 
   return (
     <div className="mx-auto p-4 bg-[#EFF6FF]">
-      <h1 className="text-3xl font-bold mb-6 text-center">
+      <h1 className="text-[56px] font-bold py-28 text-center">
         Top Universities in The UK
       </h1>
       <div

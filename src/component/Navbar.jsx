@@ -26,7 +26,7 @@ const Navbar = () => {
               <ChevronDownIcon className="w-5 h-5 ml-1 group-hover:hidden" />
               <ChevronUpIcon className="w-5 h-5 ml-1 hidden group-hover:block" />
             </button>
-            <div className="absolute hidden group-hover:block bg-white shadow-lg mt-2 py-2 w-48">
+            <div className="absolute hidden z-10 group-hover:block bg-white shadow-lg mt-2 py-2 w-48">
               <a
                 href="#"
                 className="block px-4 py-2 text-gray-700 hover:bg-gray-200"
@@ -47,7 +47,7 @@ const Navbar = () => {
               <ChevronDownIcon className="w-5 h-5 ml-1 group-hover:hidden" />
               <ChevronUpIcon className="w-5 h-5 ml-1 hidden group-hover:block" />
             </button>
-            <div className="absolute hidden group-hover:block bg-white shadow-lg mt-2 py-2 w-48">
+            <div className="absolute hidden z-10 group-hover:block bg-white shadow-lg mt-2 py-2 w-48">
               <a
                 href="#"
                 className="block px-4 py-2 text-gray-700 hover:bg-gray-200"
@@ -68,7 +68,7 @@ const Navbar = () => {
               <ChevronDownIcon className="w-5 h-5 ml-1 group-hover:hidden" />
               <ChevronUpIcon className="w-5 h-5 ml-1 hidden group-hover:block" />
             </button>
-            <div className="absolute hidden group-hover:block bg-white shadow-lg mt-2 py-2 w-48">
+            <div className="absolute hidden z-10 group-hover:block bg-white shadow-lg mt-2 py-2 w-48">
               <a
                 href="#"
                 className="block px-4 py-2 text-gray-700 hover:bg-gray-200"
@@ -89,7 +89,7 @@ const Navbar = () => {
               <ChevronDownIcon className="w-5 h-5 ml-1 group-hover:hidden" />
               <ChevronUpIcon className="w-5 h-5 ml-1 hidden group-hover:block" />
             </button>
-            <div className="absolute hidden group-hover:block bg-white shadow-lg mt-2 py-2 w-48">
+            <div className="absolute hidden z-10 group-hover:block bg-white shadow-lg mt-2 py-2 w-48">
               <a
                 href="#"
                 className="block px-4 py-2 text-gray-700 hover:bg-gray-200"

@@ -22,7 +22,7 @@ const Faq = () => {
           <div className="w-full lg:w-1/2 bg-[#004AC8] min-h-[600px] rounded-[36px]">
             <div className="lg:max-w-xl">
               <div
-                className="accordion-group px-12 py-16 text-white"
+                className="accordion-group px-10 py-16 text-white"
                 data-accordion="default-accordion"
               >
                 <div
@@ -36,7 +36,9 @@ const Faq = () => {
                     aria-controls="basic-collapse-one-with-arrow-always-open"
                     onClick={() => toggleAccordion(0)}
                   >
-                    <h5>How much can it cost to study in the UK?</h5>
+                    <h5 className="text-lg">
+                      How much can it cost to study in the UK?
+                    </h5>
                     <svg
                       className={`transition duration-500  ${
                         activeIndex === 0 ? "rotate-180" : ""
@@ -82,7 +84,9 @@ const Faq = () => {
                     aria-controls="basic-collapse-two-with-arrow-always-open"
                     onClick={() => toggleAccordion(1)}
                   >
-                    <h5>How can I go to the UK from Bangladesh to study?</h5>
+                    <h5 className="text-lg">
+                      How can I go to the UK from Bangladesh to study?
+                    </h5>
                     <svg
                       className={`transition duration-500 ${
                         activeIndex === 1 ? "rotate-180" : ""
@@ -128,7 +132,9 @@ const Faq = () => {
                     aria-controls="basic-collapse-three-with-arrow-always-open"
                     onClick={() => toggleAccordion(2)}
                   >
-                    <h5>Do I need IELTS to study in the UK?</h5>
+                    <h5 className="text-lg">
+                      Do I need IELTS to study in the UK?
+                    </h5>
                     <svg
                       className={` transition duration-500  ${
                         activeIndex === 2 ? "rotate-180" : ""
@@ -174,7 +180,7 @@ const Faq = () => {
                     aria-controls="basic-collapse-four-with-arrow-always-open"
                     onClick={() => toggleAccordion(3)}
                   >
-                    <h5>
+                    <h5 className="text-lg">
                       What is the minimum qualification to study in the UK?
                     </h5>
                     <svg
@@ -223,7 +229,7 @@ const Faq = () => {
                     aria-controls="basic-collapse-four-with-arrow-always-open"
                     onClick={() => toggleAccordion(4)}
                   >
-                    <h5>
+                    <h5 className="text-lg">
                       What is the minimum GPA required to study in the UK?
                     </h5>
                     <svg
