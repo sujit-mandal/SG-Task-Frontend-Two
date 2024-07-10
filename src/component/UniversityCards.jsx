@@ -1,5 +1,6 @@
-import { useState } from "react";
-
+import { useEffect, useRef, useState } from "react";
+import { HiLocationMarker } from "react-icons/hi";
+import "./UniversityCards.css";
 const universities = [
   {
     name: "UNIVERSITY OF ABERDEEN",
@@ -292,50 +293,107 @@ const universities = [
 ];
 
 const UniversityCards = () => {
-  const [selectedUniversity, setSelectedUniversity] = useState(null);
+  const [selectedUniversity, setSelectedUniversity] = useState(universities[0]);
 
   const handleCardClick = (university) => {
     setSelectedUniversity(university);
   };
 
+  const contentAreaRef = useRef(null);
+  const sideBarRef = useRef(null);
+
+  useEffect(() => {
+    const contentArea = contentAreaRef.current;
+    const sideBar = sideBarRef.current;
+
+    const controlSideBarFloating = () => {
+      const rectL = contentArea.getBoundingClientRect();
+      const rectR = sideBar.getBoundingClientRect();
+      const topSpace = 10;
+      const breakpoint = 992;
+      const stickyClass = "sticky-sidebar";
+      const bottomFixedClass = "bottom-fixed-sidebar";
+
+      if (window.innerWidth >= breakpoint) {
+        if (
+          rectL.top - topSpace + (rectL.height - rectR.height) >= 0 &&
+          rectL.top - topSpace <= 0
+        ) {
+          sideBar.classList.add(stickyClass);
+          sideBar.classList.remove(bottomFixedClass);
+        } else if (rectL.top - topSpace + (rectL.height - rectR.height) <= 0) {
+          sideBar.classList.remove(stickyClass);
+          sideBar.classList.add(bottomFixedClass);
+        } else {
+          sideBar.classList.remove(stickyClass);
+          sideBar.classList.remove(bottomFixedClass);
+        }
+      } else {
+        sideBar.classList.remove(stickyClass);
+        sideBar.classList.remove(bottomFixedClass);
+      }
+    };
+
+    window.addEventListener("load", controlSideBarFloating);
+    window.addEventListener("scroll", controlSideBarFloating);
+    window.addEventListener("resize", controlSideBarFloating);
+
+    return () => {
+      window.removeEventListener("load", controlSideBarFloating);
+      window.removeEventListener("scroll", controlSideBarFloating);
+      window.removeEventListener("resize", controlSideBarFloating);
+    };
+  }, []);
+
   return (
-    <div className="mx-auto p-4 bg-[#EFF6FF]">
+    <div className="p-4 bg-[#EFF6FF]">
       <h1 className="text-[56px] font-bold py-28 text-center">
         Top Universities in The UK
       </h1>
-      <div
-        className={`grid grid-cols-6 gap-4 max-w-screen-xl mx-auto ${
-          selectedUniversity ? "grid-cols-4" : "grid-cols-6"
-        }`}
-      >
-        {universities.map((university, index) => (
-          <div
-            key={index}
-            className={`col-span-1 p-4 bg-white rounded-lg cursor-pointer ${
-              selectedUniversity && selectedUniversity.name === university.name
-                ? "col-span-1"
-                : ""
-            }`}
-            onClick={() => handleCardClick(university)}
-          >
-            <img
-              src={university.logo}
-              alt={university.name}
-              className="w-full h-24 object-contain mb-4"
-            />
-          </div>
-        ))}
-        {selectedUniversity && (
-          <div className="col-span-2 p-4 bg-white shadow rounded-lg">
-            <h2 className="text-2xl font-bold mb-2">
-              {selectedUniversity.name}
-            </h2>
-            <p>{selectedUniversity.info}</p>
-            <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded">
-              <a href={selectedUniversity.link}>Apply Now</a>
-            </button>
-          </div>
-        )}
+      <div className="max-w-screen-xl mx-auto grid grid-cols-3 gap-4">
+        <div
+          className="col-span-2 grid grid-cols-4 gap-4 content-area h-[1550px] border-r-4 border-gray-300 pr-4"
+          ref={contentAreaRef}
+        >
+          {universities.map((university, index) => (
+            <div
+              key={index}
+              className="px-4 bg-white cursor-pointer h-28 hover:border-b-[6px] hover:border-blue-700"
+              onClick={() => handleCardClick(university)}
+            >
+              <img
+                src={university.logo}
+                alt={university.name}
+                className="w-full h-24 object-contain mb-4"
+              />
+            </div>
+          ))}
+        </div>
+        <div className="side-bar h-[450px]" ref={sideBarRef}>
+          {selectedUniversity && (
+            <div className="p-4">
+              <img
+                src={selectedUniversity.logo}
+                alt=""
+                className="mx-auto pt-2"
+              />
+              <h2 className="text-2xl font-bold mb-3 text-center">
+                {selectedUniversity.name}
+              </h2>
+              <p className="pb-4">{selectedUniversity.info}</p>
+              <p className="font-extrabold pb-4">
+                One of the UK's leading universities
+              </p>
+              <span className="inline-flex items-center gap-x-1">
+                <HiLocationMarker className="text-blue-700 text-lg" />
+                Located in scenic Aberdeen, Scotland
+              </span>
+              <button className="mt-4 w-full py-3 bg-blue-700 text-lg text-white rounded-full">
+                <a href={selectedUniversity.link}>Apply Now</a>
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
